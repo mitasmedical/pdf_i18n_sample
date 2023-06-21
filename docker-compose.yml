@@ -1,0 +1,18 @@
+---
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    working_dir: /usr/src/app
+    command: bin/dev
+    ports:
+      - '3000:3000'
+    volumes:
+    - .:/usr/src/app:cached
+    environment:
+      RAILS_ENV: ${RAILS_ENV:-development}
+      NODE_ENV: ${NODE_ENV:-development}

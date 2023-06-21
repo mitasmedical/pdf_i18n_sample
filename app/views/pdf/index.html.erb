@@ -1,0 +1,9 @@
+<%= form_with url: root_path, method: :post do |form| %>
+  <%= form.text_area :text, value: @text, style: 'width: 600px; height: 300px;' %>
+  <%= form.submit 'Generate' %>
+<% end %>
+
+<% if @text %>
+  <h3>Prawn</h3>
+  <iframe src="<%= prawn_path(text: @text) %>" style="width: 600px; height: 300px;"></iframe>
+<% end %>

@@ -1,0 +1,2 @@
+class PdfGenerator
+end
