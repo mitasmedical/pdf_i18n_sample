@@ -9,6 +9,7 @@ class PdfGenerator
 
     def render
       pdf_html = ActionController::Base.new.render_to_string(template: 'pdf/wicked', layout: 'pdf', locals: { text: text })
+      Rails.logger.info pdf_html
       ::WickedPdf.new.pdf_from_string(pdf_html)
     end
   end
