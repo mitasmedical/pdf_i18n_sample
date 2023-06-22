@@ -14,10 +14,15 @@ ENV EDITOR vim
 RUN apt-get update -qq \
   && DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
     build-essential \
+    pkg-config \
+    gnupg2 \
     wget \
     unzip \
     cmake \
     vim \
+    libgtk2.0-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev \
   && apt-get clean \
   && rm -rf /var/cache/apt/archives/* \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
@@ -28,7 +33,8 @@ RUN apt-get update -qq \
   && unzip kalpurush-unicode-bangla-font.zip \
   && rm kalpurush-unicode-bangla-font.zip \
   && gem update --system \
-  && gem install bundler
+  && gem install bundler \
+  && bundle config set --global force_ruby_platform true
 
 WORKDIR $RAILS_ROOT
 

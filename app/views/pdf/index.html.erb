@@ -6,4 +6,6 @@
 <% if @text %>
   <h3>Prawn</h3>
   <iframe src="<%= prawn_path(text: @text) %>" style="width: 600px; height: 300px;"></iframe>
+  <h3>Wicked PDF</h3>
+  <iframe src="<%= wicked_path(text: @text) %>" style="width: 600px; height: 300px;"></iframe>
 <% end %>
